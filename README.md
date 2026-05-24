@@ -138,20 +138,3 @@
    cd sb3_github_finder
    ```
 3. 브라우저에서 `index.html` 파일을 직접 실행하거나, VS Code의 Live Server 확장을 사용하여 개발 서버를 실행해 접속합니다.
-
-### 🐳 Docker를 이용한 웹 서버 구동 (Production Deployment)
-
-관리자님의 Proxmox 서버나 Docker가 설치된 환경에서 웹 서버로 상시 서비스하고 싶으시다면, 제공되는 `Dockerfile`과 `docker-compose.yml`을 사용하여 아주 간단하게 구동할 수 있습니다.
-
-1. **컨테이너 빌드 및 백그라운드 실행**
-   ```bash
-   # 이유: 코드를 Nginx 이미지에 담아 빌드한 뒤, 백그라운드(-d)에서 상시 기동시키기 위함입니다.
-   docker-compose up -d --build
-   ```
-2. **구동 확인**
-   웹 브라우저를 열고 `http://서버IP:8080`으로 접속하여 정상 동작하는지 확인합니다. (기본 포트는 `8080`으로 설정되어 있습니다.)
-3. **서버 중지**
-   ```bash
-   # 이유: 기동 중인 컨테이너 서비스를 안전하게 종료하고 리소스를 반환하기 위함입니다.
-   docker-compose down
-   ```
