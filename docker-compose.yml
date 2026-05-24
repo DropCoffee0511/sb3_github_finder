@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  github-finder:
+    build: .
+    container_name: github-finder
+    ports:
+      # 외부 접속 포트 8080을 컨테이너 내부의 80번 포트(Nginx)와 연결합니다.
+      - "8080:80"
+    # 컨테이너가 예기치 않게 종료되거나 서버가 재부팅되면 자동으로 다시 켭니다.
+    restart: always
